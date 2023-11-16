@@ -1,0 +1,11 @@
+
+* mini-bib.el
+
+This package provides minimal citation management tools. The only advantage over other
+similar packages is that it's small and easy to audit—though it depends on [[https://github.com/joostkremers/parsebib][parsebib]].
+Fortunately the library is well documented and easy to understand. The package provides
+three functions which make use Emacs completions mechanism:
+
+~mini-bib-note~: open or creates a note associated with the entry.
+~mini-bib-cite~: insert a citation.
+~mini-bib-open~: opens the file associated with the entry.
