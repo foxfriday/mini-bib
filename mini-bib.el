@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2023 M. Rincón
 
-;; Version: 0.0.01
+;; Version: 0.0.02
 ;; URL: https://github.com/foxfriday/mini-bib
 ;; Package-Requires: ((emacs "29") (parsebib "4.3"))
 
@@ -69,7 +69,7 @@
 
 ;;;###autoload
 (defun mini-bib-note (&optional search annotate)
-  "Create or open a note using narrowing by SEARCH and using ANNOTATE in the margin."
+  "Create or open notes narrowing by SEARCH with ANNOTATE in the margin."
   (interactive)
   (let* ((mini-bib-search-field (if search search mini-bib-search-field))
          (mini-bib-search-annotation (if annotate annotate mini-bib-search-annotation))
@@ -110,7 +110,7 @@
                                          ((file-exists-p epub) epub)
                                          ((file-exists-p doc) doc)
                                          ((file-exists-p docx) docx)
-                                         (t (error format("File for %s doesn't exist" key)))))
+                                         (t (error (format "File for %s doesn't exist" key)))))
                              (log-buffer (get-buffer-create "*Messages*")))
                         (make-process :name "mini-bib-open"
                                       :buffer log-buffer
