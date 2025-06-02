@@ -73,7 +73,7 @@
   (interactive)
   (let* ((mini-bib-search-field (if search search mini-bib-search-field))
          (mini-bib-search-annotation (if annotate annotate mini-bib-search-annotation))
-         (text "* %s\n:PROPERTIES:\n:AUTHORS: %s\n:END:\n"))
+         (text "#+setupfile: ../setup.org\n* %s\n:PROPERTIES:\n:AUTHORS: %s\n:DATE:\n:STARS:\n:END:\n"))
     (mini-bib--read (lambda (entry)
                       (let* ((key (cdr (assoc "=key=" entry)))
                              (title (cdr (assoc "title" entry)))
