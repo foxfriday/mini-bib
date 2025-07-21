@@ -18,13 +18,14 @@
 ;;; Code:
 (require 'parsebib)
 
-(defvar mini-bib-bibliography (list "~/Repos/books/bibliography.bib")
+(defvar mini-bib-bibliography (list "~/Documents/lib/src/bib/digital.bib"
+                                    "~/Documents/lib/src/bib/physical.bib")
   "Default list of bibliographies.")
 
-(defvar mini-bib-notes "~/Repos/books/notes"
+(defvar mini-bib-notes "~/Repos/notes/src/books/"
   "Default location for the notes.")
 
-(defvar mini-bib-files "~/Repos/books/documents"
+(defvar mini-bib-files "~/Documents/lib/src/docs/"
   "Default location for the articles.")
 
 (defvar mini-bib-open-cmnd (if (eq system-type 'darwin) "open" "xdg-open")
@@ -110,7 +111,7 @@
                                          ((file-exists-p epub) epub)
                                          ((file-exists-p doc) doc)
                                          ((file-exists-p docx) docx)
-                                         (t (error (format "File for %s doesn't exist" key)))))
+                                         (t (error (format "File for key %s doesn't exist" key)))))
                              (log-buffer (get-buffer-create "*Messages*")))
                         (make-process :name "mini-bib-open"
                                       :buffer log-buffer
